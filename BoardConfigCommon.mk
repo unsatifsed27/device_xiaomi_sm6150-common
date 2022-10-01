@@ -58,6 +58,13 @@ TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 # FM
 BOARD_HAVE_QCOM_FM := true
 
+# GalleryGo
+ifeq ($(strip $(WITH_GAPPS)),false)
+     ifeq ($(BUILD_CORE_GAPPS), true)
+     PRODUCT_PACKAGES += $(COMMON_PATH)/GalleryGo
+     endif
+endif
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 LOC_HIDL_VERSION := 4.0
